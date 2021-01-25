@@ -5,9 +5,12 @@ package com.demo.lc;
  */
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+// 自动扫描注解  @ComponentScan
+@ComponentScan
 public class JavaConfig {
     @Bean
     public UserBean userBean_1() {
