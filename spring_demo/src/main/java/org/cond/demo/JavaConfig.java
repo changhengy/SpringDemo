@@ -4,15 +4,24 @@ package org.cond.demo;
  * @author chy
  */
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 
 @Configuration
 public class JavaConfig {
     @Bean
     @Conditional(WindowsCondition.class)
-    public WinCmd winCmd() {
+    @Profile("test")
+    @Scope("prototype")
+    public WinCmd wintestCmd() {
+        return new WinCmd();
+    }
+
+
+    @Bean
+    @Conditional(WindowsCondition.class)
+    @Profile("dev")
+    @Scope("singleton")
+    public WinCmd windevCmd() {
         return new WinCmd();
     }
 
