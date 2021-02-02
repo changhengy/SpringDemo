@@ -62,6 +62,8 @@ public class User implements ApplicationContextAware, BeanNameAware, EmbeddedVal
 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         System.out.println("setApplicationContext 被执行");
+        DemoBean demoBean = (DemoBean)applicationContext.getBean("demoBean");
+        demoBean.pringHello();
     }
 
     public void setEmbeddedValueResolver(StringValueResolver stringValueResolver) {

@@ -13,4 +13,15 @@ public class JavaConfig {
     public User wudihaoke() {
         return new User();
     }
+
+    @Bean
+    public User 老常() {
+        return new User();
+    }
+
+    @Bean
+    public DemoBean demoBean() {
+        return new DemoBean();
+    }
+
 }
