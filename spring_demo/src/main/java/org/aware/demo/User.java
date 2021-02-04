@@ -51,6 +51,7 @@ public class User implements ApplicationContextAware, BeanNameAware, EmbeddedVal
 
     private String address;
 
+    @Deprecated
     public User() {
         System.out.println("User  类的无参构造");
     }
