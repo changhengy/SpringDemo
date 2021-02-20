@@ -5,14 +5,18 @@ package org.annotation.demo;
  */
 
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import java.lang.annotation.Documented;
 
 public class MyAnnotationTest {
 
     public static void main(String[] args) {
-//        Calcul calcul = new Calcul();
-        Calcul calcul = new Calcul(15 , 15);
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(JavaConfig.class);
 
+
+//        Calcul calcul = ctx.getBean("calcul", Calcul.class);
+        Calcul calcul = ctx.getBean(Calcul.class);
         calcul.add();
 
         try {
@@ -24,6 +28,23 @@ public class MyAnnotationTest {
             System.out.println("抛出异常" +  e.getMessage());
 //            e.printStackTrace();
         }
+
+
+
+//        Calcul calcul = new Calcul();
+//        Calcul calcul = new Calcul(15 , 15);
+//
+//        calcul.add();
+//
+//        try {
+//            calcul.testManno();
+//        } catch (IllegalAccessException e) {
+////            e.printStackTrace();
+//            System.out.println("抛出异常" +  e.getMessage());
+//        } catch (IllegalArgumentException e) {
+//            System.out.println("抛出异常" +  e.getMessage());
+////            e.printStackTrace();
+//        }
 
         return;
     }
